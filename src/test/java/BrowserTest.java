@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,9 +18,21 @@ public class BrowserTest {
         WebDriver driver = new FirefoxDriver();
 
 
-        driver.get("https://taniestruny.pl/");
+        driver.get("https://www.google.pl");
         driver.manage().window().maximize();
 
+
+
+        // wyszukiwarka
+
+        WebElement search = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+        search.sendKeys("Seba");
+        search.click();
+        Thread.sleep(3000);
+        search.sendKeys(Keys.ENTER);
+
+
+        // wyszukiwarka
 
 
         WebElement menuStruny = driver.findElement(By.xpath("//a[@title='Struny do gitary']"));
