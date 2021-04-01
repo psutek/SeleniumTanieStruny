@@ -22,9 +22,6 @@ public class BrowserTest {
         driver.manage().window().maximize();
 
 
-
-        // wyszukiwarka
-
         WebElement search = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
         search.sendKeys("Seba");
         search.click();
@@ -32,7 +29,20 @@ public class BrowserTest {
         search.sendKeys(Keys.ENTER);
 
 
-        // wyszukiwarka
+        driver.get("https://taniestruny.pl/");
+
+
+        WebElement searchTanie = driver.findElement(By.xpath("//div[@class='input-container']/input[@name='q' and @class='form-control']"));
+        searchTanie.clear();
+        searchTanie.click();
+
+        WebElement search2 = driver.findElement(By.xpath("(//input[@name='q' and @id='ProductQ'])[2]"));
+
+        search2.sendKeys("XXXXXXXXXXXXXXXXXXX");
+        search2.click();
+        Thread.sleep(3000);
+        search2.sendKeys(Keys.ENTER);
+
 
 
         WebElement menuStruny = driver.findElement(By.xpath("//a[@title='Struny do gitary']"));
